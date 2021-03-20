@@ -15,13 +15,14 @@ Comments: En language
 # First Part:
 
 ## Сергей Ч: 
-mainapp(patterns + form_validation(captcha)) + django_redis cache
+Django auth + profile + celery(email)
+
 
 ## Саня З:
 websockets + celery
 
 ## Саня Р:
-Django auth + profile + celery(email)
+mainapp(patterns + form_validation(captcha)) + django_redis cache
 
 ## Леха R:
 RestApi + DeppLearning
