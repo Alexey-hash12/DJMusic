@@ -8,4 +8,4 @@ def send(user_email):
         [user_email],
         fail_silently=False
     )
-    print("yrs")
+   	

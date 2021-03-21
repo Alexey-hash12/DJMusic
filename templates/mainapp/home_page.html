@@ -5,5 +5,7 @@ Home|Page
 {% endblock %}
 
 {% block content %}
-
+{% for i in musics %}
+	<img src="{{ i.poster.url }}" alt="" style="width:100px;">
+{% endfor %}
 {% endblock %}
