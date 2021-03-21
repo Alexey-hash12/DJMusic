@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
+
+    # Celery
+    'django_celery_results',
 ]
 
 MIDDLEWARE = [
@@ -118,6 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Logging
 LOGGING = {
     'version':1,
     'disable_existing_loggers': False,
@@ -136,6 +140,43 @@ LOGGING = {
         },
     },
 }
+
+
+# ``` bash redis.cli ```
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+# ``` bash  celery -A {name of celery application} worker -l INFO``` 
+# Celery
+CELERY_RESULT_BACKEND = 'django-cache'
+CELERY_TIMEZONE = "Europe/Moscow"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_BROKER_URL = 'redis://localhost:6379/0' # you should start your redis
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_ACCEPT_CONTENT = ['application/json']
+
+
+# Email settings
+# Denied access to other application on email
+# https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4PPTD34ZDNRL8gcB81SWMgilQFRhfjdKwlCy2A0vYBWguVlXHpAZja-Y7RpiECOYpXpiDVlnuoLm2QkGo30vNFO3zWSdg
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ryzhakovalexeynicol@gmail.com'
+EMAIL_HOST_PASSWORD = '445578891'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+SERVER_EMAIL = DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
 
 
 # Internationalization
