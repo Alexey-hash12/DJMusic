@@ -5,6 +5,8 @@ from . import views
 from rest_framework import routers
 
 router = routers.SimpleRouter()
-router.register('music', views.MusicViewSet, basename='music')
+router.register('musics', views.MusicsViewSet, basename='musics')
+router.register("authors", views.AuthorsViewSet, basename='authors')
+router.register('albums', views.AlbumsViewSet, basename='albums')
 
 urlpatterns = router.urls
