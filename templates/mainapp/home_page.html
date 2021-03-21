@@ -68,8 +68,8 @@ Home|Page
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h2>Artist Bio</h2>
-                        <h6>Sed porta cursus enim, vitae maximus felis luctus iaculis.</h6>
+                        <h2>Author Bio</h2>
+                        <h6>But the gate of the courses for the life of the biggest cat tape specifications.</h6>
                     </div>
                 </div>
             </div>
@@ -78,14 +78,14 @@ Home|Page
                 <!-- About Thumbnail -->
                 <div class="col-12 col-lg-6">
                     <div class="about-thumbnail mb-100">
-                        <img src="{% static 'img/bg-img/bg-5.jpg' %}" alt="">
+                        <img src="{{ author.face.url }}" alt="">
                     </div>
                 </div>
                 <!-- About Content -->
                 <div class="col-12 col-lg-6">
                     <div class="about-content mb-100">
-                        <h4>Hello, It’s Michael Smithson</h4>
-                        <p>Nulla pretium tincidunt felis, nec sollicitudin mauris lobortis in. Aliquam eu feugiat ligula, laoreet efficitur nulla. Morbi nec neque porta, elementum massa at, vehicula nunc. Nulla facilisi. Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                        <h4>{{author.name}}</h4>
+                        <p>{{author.desc}}</p>
                         <img src="{% static 'img/core-img/signature.png' %}" alt="">
                     </div>
                 </div>
@@ -308,7 +308,7 @@ Home|Page
                     <div class="featured-album-content d-flex flex-wrap">
 
                         <!-- Album Thumbnail -->
-                        <div class="album-thumbnail h-100 bg-img" style="background-image: url({% static 'img/bg-img/bg-4.jpg' %});"></div>
+                        <div class="album-thumbnail h-100 bg-img" style="background-image: url({{ author.face.url }});"></div>
 
                         <!-- Album Songs -->
                         <div class="album-songs h-100">
@@ -316,112 +316,28 @@ Home|Page
                             <!-- Album Info -->
                             <div class="album-info mb-50 d-flex flex-wrap align-items-center justify-content-between">
                                 <div class="album-title">
-                                    <h6>Featured album</h6>
-                                    <h4>Love is all Around</h4>
+                                    <h6>Best Songs</h6>
+                                    <h4>{{author.name2}}</h4>
                                 </div>
                                 <div class="album-buy-now">
                                     <a href="#" class="btn musica-btn">Buy it on Itunes</a>
                                 </div>
                             </div>
 
-                            <div class="album-all-songs">
+                            <div class="">
 
                                 <!-- Music Playlist -->
-                                <div class="music-playlist">
-                                    <!-- Single Song -->
-                                    <div class="single-music active">
-                                        <h6>Drop that beat</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
+                                <div class="music-playlist" style="width: 450; height: 300px;padding-right: 30px; overflow:auto;">
+                                	{% for music in author.music.all %}
+                                    <h6 style="color: #c5afd9;">{{ music.title }}</h6>
 
                                     <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Hey, Mister Dj</h6>
+                                    <div class="single-music" style='color:white'>
                                         <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
+                                            <source src="{{ music.file.url }}">
                                         </audio>
                                     </div>
-
-                                    <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Message to my future self</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
-
-                                    <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Bring back the love</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
-
-                                    <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Hey, Mister Dj - Remix</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
-
-                                    <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Message to my future self</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
-                                    <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Drop that beat</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
-
-                                    <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Hey, Mister Dj</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
-
-                                    <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Message to my future self</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
-
-                                    <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Bring back the love</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
-
-                                    <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Hey, Mister Dj - Remix</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
-
-                                    <!-- Single Song -->
-                                    <div class="single-music">
-                                        <h6>Message to my future self</h6>
-                                        <audio preload="auto" controls>
-                                            <source src="audio/dummy-audio.mp3">
-                                        </audio>
-                                    </div>
+                                    {% endfor %}
                                 </div>
                             </div>
 
@@ -429,11 +345,8 @@ Home|Page
                             <div class="now-playing d-flex flex-wrap align-items-center justify-content-between">
                                 <div class="songs-name">
                                     <p>Playing</p>
-                                    <h6>Drop that beat</h6>
+                                    <h6>{{author}} playlist</h6>
                                 </div>
-                                <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
                             </div>
 
                         </div>
@@ -450,19 +363,21 @@ Home|Page
         <div class="music-search bg-img bg-overlay2 wow fadeInUp" data-wow-delay="300ms" style="background-image: url({% static 'img/bg-img/bg-9.jpg' %});">
             <!-- Content -->
             <div class="music-search-content">
-                <h2>Music</h2>
+               	<a href="{% url 'music' %}"><h2>Music</h2></a>
                 <h4>Search for the best music</h4>
             </div>
         </div>
 
         <!-- Artists Search -->
+        
         <div class="artists-search bg-img bg-overlay2 wow fadeInUp" data-wow-delay="600ms" style="background-image: url({% static 'img/bg-img/bg-1.jpg' %});">
             <!-- Content -->
             <div class="music-search-content">
-                <h2>Artists</h2>
-                <h4>Search for the best artists</h4>
+                <a href="{% url 'authors' %}"><h2>Authors</h2></a>
+                <h4>Search for the best Authors</h4>
             </div>
         </div>
     </div>
     <!-- ##### Music Artists Area End ##### -->
+
 {% endblock %}

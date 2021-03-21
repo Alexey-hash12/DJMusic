@@ -20,7 +20,7 @@ class AuthorModel(models.Model):
 	desc = models.TextField()
 	age = models.PositiveIntegerField(default=0)
 	music = models.ManyToManyField(MusicModel)
-
+	face = models.ImageField(upload_to='files/authors_face/', null=True)
 
 	def __str__(self):
 		return self.name

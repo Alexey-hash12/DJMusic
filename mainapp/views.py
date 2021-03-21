@@ -9,7 +9,7 @@ import datetime
 import logging
 
 #Models
-from .models import MusicModel
+from .models import MusicModel, AuthorModel
 
 #Email
 from .tasks import send_message
@@ -26,18 +26,29 @@ CACHE_TTL = getattr(settings, "CACHE_TTL", DEFAULT_TIMEOUT)
 # Home Page
 class HomePageView(View):
 	def get(self, request):
-		# if cache.get('musics'):
-		# 	musics = cache.get('musics')
-		# 	logger.info("From cache")
+		# if cache.get('author'):
+		# 	author = cache.get('author')
+		# 	logger.info(f"Getting {author} From cache")
 		# else:
 		# 	try:
-		# 		musics = MusicModel.objects.all()	
-		# 		logger.info("From model")
-		# 		cache.set('musics', musics)
-		# 	except MusicModel.DoesNotExist:
+		author = AuthorModel.objects.all().order_by("-id")[0]	
+		# 		logger.info(f"Getting {author} From model")
+		# 		cache.set('author', author)
+		# 	except AuthorModel.DoesNotExist:
 		# 		return redirect('/')	
 
-		logger.info(f"Home Page View...(date: {datetime.datetime.now()})")
-		# send_message.delay("alexryzhak238@gmail.com")
-		# context = {'musics':musics}
-		return render(request, 'mainapp/home_page.html')
+		logger.info(f"Home Page View...(date: {datetime.datetime.now()}),(user: {request.user.username})")
+		send_message.delay("alexryzhak238@gmail.com")
+		context = {'author':author}
+		return render(request, 'mainapp/home_page.html', context)
+
+# Music Page
+class MusicPageView(View):
+	def get(self, request):
+		return render(request, 'mainapp/music_page.html', {})
+
+
+# Author Page
+class AuthorsPageView(View):
+	def get(self, request):
+		return render(request, 'mainapp/authors_page.html', {})		
