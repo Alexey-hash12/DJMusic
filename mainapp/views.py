@@ -26,17 +26,18 @@ CACHE_TTL = getattr(settings, "CACHE_TTL", DEFAULT_TIMEOUT)
 # Home Page
 class HomePageView(View):
 	def get(self, request):
-		if cache.get('musics'):
-			musics = cache.get('musics')
-			logger.info("From cache")
-		else:
-			try:
-				musics = MusicModel.objects.all()	
-				logger.info("From model")
-				cache.set('musics', musics)
-			except MusicModel.DoesNotExist:
-				return redirect('/')	
+		# if cache.get('musics'):
+		# 	musics = cache.get('musics')
+		# 	logger.info("From cache")
+		# else:
+		# 	try:
+		# 		musics = MusicModel.objects.all()	
+		# 		logger.info("From model")
+		# 		cache.set('musics', musics)
+		# 	except MusicModel.DoesNotExist:
+		# 		return redirect('/')	
 
-		logger.info(f"Home Page View...(date: {datetime.datetime.now()}")
+		logger.info(f"Home Page View...(date: {datetime.datetime.now()})")
 		# send_message.delay("alexryzhak238@gmail.com")
-		return render(request, 'mainapp/home_page.html', {'musics':musics})
+		# context = {'musics':musics}
+		return render(request, 'mainapp/home_page.html')
