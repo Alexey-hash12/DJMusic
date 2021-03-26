@@ -11,11 +11,13 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-import os
+import os, sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# PROJECT_ROOT = Path(__file__)
+# sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -98,7 +100,8 @@ DATABASES = {
         'NAME': 'djmusic_db',
         'USER': 'postgres',
         'PASSWORD': '445578891',
-        'HOST': '127.0.0.1',
+        # 'HOST': 'postgresdb',
+        'HOST':"localhost",
         'PORT': '5432',
     }
 }
@@ -120,6 +123,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+LOGIN_REDIRECT_URL = '/'
 
 # Logging
 LOGGING = {
@@ -168,7 +173,6 @@ CELERY_ACCEPT_CONTENT = ['application/json']
 
 # Email settings
 # Denied access to other application on email
-# https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4PPTD34ZDNRL8gcB81SWMgilQFRhfjdKwlCy2A0vYBWguVlXHpAZja-Y7RpiECOYpXpiDVlnuoLm2QkGo30vNFO3zWSdg
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'ryzhakovalexeynicol@gmail.com'
 EMAIL_HOST_PASSWORD = '445578891'

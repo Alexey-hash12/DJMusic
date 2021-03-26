@@ -1,0 +1,100 @@
+{% extends '_base.html' %}
+
+{% block title %}
+About Us|Page
+{% endblock %}
+
+{% block content %}
+{% load static %}
+ <!-- ##### Career Timeline Area Start ##### -->
+    <div class="career-timeline-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>My Life &amp; career</h2>
+                        <h6>Sed porta cursus enim, vitae maximus felis luctus iaculis.</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+
+                    <!-- Single Timeline Area -->
+                    <div class="single-timeline-area d-flex">
+                        <!-- Timeline Date -->
+                        <div class="timeline-date">
+                            <h2>20 <span>March 2021</span></h2>
+                        </div>
+                        <!-- Timeline Content -->
+                        <div class="timeline-content">
+                            <h5>Project start</h5>
+                            <p>Леха R: RestApi + DeppLearning. Python Web backend developer. Django (Django Rest) framework. Start developing: 2020. Саня Р: mainapp(patterns + form_validation(captcha)) + django_redis cache. Frontend + Python Web developer. Django. Саня З: websockets + celery. Python developer. Start developing: 2020</p>
+                        </div>
+                    </div>
+
+                    <!-- Single Timeline Area -->
+                    <div class="single-timeline-area d-flex">
+                        <!-- Timeline Date -->
+                        <div class="timeline-date">
+                            <h2>23 <span>May 2021</span></h2>
+                        </div>
+                        <!-- Timeline Content -->
+                        <div class="timeline-content">
+                            <h5>First step</h5>
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <!-- Single Timeline Area -->
+                    <div class="single-timeline-area d-flex">
+                        <!-- Timeline Date -->
+                        <div class="timeline-date">
+                            <h2>08 <span>May 2007</span></h2>
+                        </div>
+                        <!-- Timeline Content -->
+                        <div class="timeline-content">
+                            <h5>First Album Release</h5>
+                            <p>Nulla facilisi. Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+                        </div>
+                    </div>
+
+                    <!-- Single Timeline Area -->
+                    <div class="single-timeline-area d-flex">
+                        <!-- Timeline Date -->
+                        <div class="timeline-date">
+                            <h2>30 <span>May 2009</span></h2>
+                        </div>
+                        <!-- Timeline Content -->
+                        <div class="timeline-content">
+                            <h5>My First Live Concert</h5>
+                            <p>Nulla facilisi. Donec id purus eu lectus imperdiet varius. Curabitur consectetur nunc sem, vitae cursus enim tempor eget. Praesent pellentesque nisi urna, sit amet suscipit ligula posuere id. Aenean id tortor vel quam ornare gravida. Phasellus luctus feugiat nunc, quis vulputate ipsum convallis quis. Integer vel nulla erat. Donec erat metus, luctus quis maximus quis, volutpat eu tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="timeline-btn text-center mt-100">
+                        <a href="#" class="btn musica-btn">Load More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Side Thumbs -->
+        <div class="first-img">
+            <img src="{% static 'img/bg-img/man.png' %}" alt="">
+        </div>
+        <div class="second-img">
+            <img src="{% static 'img/bg-img/microphone.png' %}" alt="">
+        </div>
+    </div>
+    <!-- ##### Career Timeline Area End ##### -->
+{% endblock %}
+
+

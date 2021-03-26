@@ -1,0 +1,104 @@
+{% extends '_base.html' %}
+
+{% block title %}
+{{album.title}} Album
+{% endblock %}
+
+{% block content %}
+{% load static %}
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img bg-overlay2" style="background-image: url({% static 'img/bg-img/breadcumb.jpg' %});">
+        <div class="bradcumbContent">
+            <h2>Album</h2>
+        </div>
+    </div>
+    <!-- bg gradients -->
+    <div class="bg-gradients"></div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### About Us Area Start ##### -->
+    <div class="about-us-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <!-- About Thumbnail -->
+                <div class="col-12 col-lg-6">
+                    <div class="about-thumbnail mb-100" >
+                        <img src="{{ album.poster.url }}" style="position:absolute; right: 0; height: 300px;" alt="">
+                    </div>
+                </div>
+                <!-- About Content -->
+                <div class="col-12 col-lg-6">
+                    <div class="about--content mb-100">
+                        <h4>{{ album.title }}</h4>
+                        <p>{{ album.desc }}</p>
+                        <ul class="key-notes">
+                            <li><div class="check"><img src="{% static 'img/core-img/check.png' %}" alt=""></div> {{album.status}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### About Us Area End ##### -->
+    <!-- ##### Featured Shows Area Start ##### -->
+    <div class="featured-shows-area section-padding-100" style="margin-top: -100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading dark">
+                        <h2>Music</h2>
+                        <h6>All {{ album.title }} music</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="featured-shows-slides owl-carousel">
+                        {% for music in album.music.all %}
+
+                        <!-- Single Featured Shows -->
+                        <div class="single-featured-shows">
+                            <img src="{{ music.poster.url }}" alt="">
+                            <!-- Content -->
+                            <a href="{% url 'music' music.id %}"><div class="featured-shows-content">
+                                <div class="shows-text">
+                                    <h4>{{ music.title }}</h4>
+                                    <p>{{ music.date }}</p>
+                                </div>
+                                <div class="bg-gradients"></div>
+                            </div></a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Featured Shows Area End ##### -->
+   
+
+    <!-- ##### CTA Area Start ##### -->
+    <div class="musica-cta-area section-padding-100 bg-img bg-overlay2" style="background-image: url({% static 'img/bg-img/bg-8.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta-content">
+                        <div class="cta-text">
+                            <span>Unique Way to see a</span>
+                            <h2>Music Concert</h2>
+                            <h4>Search for the best music</h4>
+                        </div>
+                        <div class="cta-btn mt-30">
+                            <a href="#" class="btn musica-btn">elements</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### CTA Area End ##### -->
+
+{% endblock %}
+
+

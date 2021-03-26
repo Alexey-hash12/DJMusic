@@ -5,9 +5,12 @@ from . import views
 
 urlpatterns = [
 	# Authorization
-	path('login/', views.AuthLoginView.as_view(), name='login'),
+	path('login/', views.AuthLoginUserView.as_view(), name='login'),
 	# Registration
-	path('register/', views.AuthRegisterView.as_view(), name='register'),
+	path('register/', views.AuthRegisterUserView.as_view(), name='register'),
 	# Logout
-	path('logout', views.AuthLogoutView.as_view(), name='logout')
+	path('logout', views.AuthLogoutUserView.as_view(), name='logout'),
+	# Profile
+	path('profile/<int:id>', views.ProfileUserView.as_view(), name='profile')
+
 ]

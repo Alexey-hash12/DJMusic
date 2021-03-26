@@ -1,11 +1,15 @@
 from django.core.mail import send_mail
+import logging
 
-def send(user_email):
+logger = logging.getLogger(__name__)
+
+def send(name, sender, receiver, theme, message):
     send_mail(
-        "asdasd", # main text
-        "dsaawds", # text
-        "ryzhakovalexeynicol@gmail.com", # your emial
-        [user_email],
+        f"{theme}", # main text
+        f"{name}, {receiver} ::: {message}", # text
+        sender, # your emial
+        [reciever],
         fail_silently=False
     )
+    logger.info("<sending email>")
    	

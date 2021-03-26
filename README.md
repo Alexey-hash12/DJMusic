@@ -20,7 +20,7 @@ End of development: ...
 # Start of project
 ***at first you should install requirements***
 ```bash
-pip install -r req.txt
+pip install -r requirements.txt
 ```
 ***and migrate***
 ```bash
@@ -60,4 +60,28 @@ RestApi + DeppLearning
 ## Second Part:
 ....
 
+
+#Nessesary information
+##email
+denied info: https://myaccount.google.com/lesssecureapps?pli=1&rapt=AEjHL4PPTD34ZDNRL8gcB81SWMgilQFRhfjdKwlCy2A0vYBWguVlXHpAZja-Y7RpiECOYpXpiDVlnuoLm2QkGo30vNFO3zWSdg
+
+##celery
+```bash
+	celery -A {name of celery application} worker
+```
+
+##docker
+docker install: install docker desctop
+
+****
+docker instal additional software:https://docs.microsoft.com/ru-ru/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package
+
+****
+entrypoin.sh -> unix(LF)
+
+****
+docker-amd64-error:https://stackoverflow.com/questions/48066994/docker-no-matching-manifest-for-windows-amd64-in-the-manifest-list-entries
+
+****
+docker-run: https://stackoverflow.com/questions/52946810/error-during-connect-get-http-2f2f-2fpipe2fdocker-engine-v1-38-info
 

@@ -5,7 +5,35 @@ Authors|Page
 {% endblock %}
 
 {% block content %}
-
+{% load static %}
+<!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb-area bg-img bg-overlay2" style="background-image: url({% static 'img/bg-img/breadcumb2.jpg' %});">
+        <div class="bradcumbContent">
+            <h2>Authors</h2>
+        </div>
+    </div>
+    <div class="bg-gradients"></div>
+{% for author in authors %}
+    <div class="about-us-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="about-thumbnail mb-100" >
+                        <img src="{{ author.face.url }}" style="position:absolute; right: 0; height: 300px;" alt="">
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="about--content mb-100">
+                        <a href="{% url 'author' author.id %}"><h4>{{ author.name }}</h4></a>
+                        <p>{{ author.desc }}</p>
+                        <ul class="key-notes">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
 {% endblock %}
 
 

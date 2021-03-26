@@ -1,19 +1,25 @@
-{% extends  'base.html' %}
-{% load crispy_forms_tags %}
+{% extends  '_base.html' %}
 
-{% block main %}
-<div class="card">
-<div class="card-body">
-<h4 class="card-title">Авторизация</h4>
+{% block title %}
+Login|Page
+{% endblock %}
 
-<form method="post">
-{% csrf_token %}
-<input type="hidden" name="next" value="{{ next }}">
-
-{{ form|crispy }}
-
-<button type="submit" class="btn btn-primary btn-block">Log in</button>
-</form>
+{% block content %}
+{% load static %}
+<div class="breadcumb-area bg-img bg-overlay2" style="background-image: url({% static 'img/bg-img/breadcumb5.jpg' %});">
+	<div class="bradcumbContent">
+		<h2>Sign In</h2>
+	</div>
 </div>
+<div class="card" style="margin-top: 100px; max-width: 400px; margin-left: 37%;">
+	<div class="card-body">
+
+		<form method="post">
+			{% csrf_token %}
+			<span>Username</span><span style="position:relative"><input type="text" style='position:absolute; right:-280px;' name='username'></span><br><br>
+			<span>Password</span><span style="position:relative"><input type="text"style='right:-284px; position:absolute'  name="password"></span><br><br>
+			<button type="submit" style="background: linear-gradient(to right, #cc1573, #5722a9);" class="btn btn-primary btn-block">Sign in</button>
+		</form>
+	</div>
 </div>
 {% endblock %}

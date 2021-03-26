@@ -84,7 +84,7 @@ Home|Page
                 <!-- About Content -->
                 <div class="col-12 col-lg-6">
                     <div class="about-content mb-100">
-                        <h4>{{author.name}}</h4>
+                        <a style="color: white; font-size: 24px;" href="{% url 'author' author.id %}">{{author.name}}</a>
                         <p>{{author.desc}}</p>
                         <img src="{% static 'img/core-img/signature.png' %}" alt="">
                     </div>
@@ -226,73 +226,22 @@ Home|Page
                     <div class="music-player-slides owl-carousel">
 
                         <!-- Single Music Player -->
-                        <div class="single-music-player">
-                            <img src="{% static 'img/bg-img/mp1.jpg' %}" alt="">
+                        {% for album in author.albums.all %}
+                        <div class="single-music-player" style="height: 300px;">
+                            <a href="{% url 'album_desc' album.id %}">
 
+                            <img src="{{ album.poster.url }}" alt="">
                             <div class="music-info d-flex justify-content-between">
                                 <div class="music-text">
-                                    <h5>Artist’s/Band Name</h5>
-                                    <p>Love is all Around</p>
+                                    <h5>{{ album.title}}</h5>
+                                    <p>{{ album.date }}</p>
                                 </div>
-                                <div class="music-play-icon">
-                                    <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                                </div>
+                                <div class="music-play-icon" style="position:absolute; color: white; margin-left: 300px; margin-top: -15px">
+                                    {{ album.status }}    
+                                </div></a>
                             </div>
                         </div>
-
-                        <!-- Single Music Player -->
-                        <div class="single-music-player">
-                            <img src="{% static 'img/bg-img/mp2.jpg' %}" alt="">
-
-                            <div class="music-info d-flex justify-content-between">
-                                <div class="music-text">
-                                    <h5>Artist’s/Band Name</h5>
-                                    <p>Love is all Around</p>
-                                </div>
-                                <div class="music-play-icon">
-                                    <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Music Player -->
-                        <div class="single-music-player">
-                            <img src="{% static 'img/bg-img/mp3.jpg' %}" alt="">
-
-                            <div class="music-info d-flex justify-content-between">
-                                <div class="music-text">
-                                    <h5>Artist’s/Band Name</h5>
-                                    <p>Love is all Around</p>
-                                </div>
-                                <div class="music-play-icon">
-                                    <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Single Music Player -->
-                        <div class="single-music-player">
-                            <img src="{% static 'img/bg-img/mp4.jpg' %}" alt="">
-
-                            <div class="music-info d-flex justify-content-between">
-                                <div class="music-text">
-                                    <h5>Artist’s/Band Name</h5>
-                                    <p>Love is all Around</p>
-                                </div>
-                                <div class="music-play-icon">
-                                    <audio preload="auto" controls>
-                                    <source src="audio/dummy-audio.mp3">
-                                </audio>
-                                </div>
-                            </div>
-                        </div>
-
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -317,7 +266,7 @@ Home|Page
                             <div class="album-info mb-50 d-flex flex-wrap align-items-center justify-content-between">
                                 <div class="album-title">
                                     <h6>Best Songs</h6>
-                                    <h4>{{author.name2}}</h4>
+                                    <a href="{% url 'author' author.id %}"><h4>{{author.name}}</h4></a>
                                 </div>
                                 <div class="album-buy-now">
                                     <a href="#" class="btn musica-btn">Buy it on Itunes</a>
@@ -332,7 +281,7 @@ Home|Page
                                     <h6 style="color: #c5afd9;">{{ music.title }}</h6>
 
                                     <!-- Single Song -->
-                                    <div class="single-music" style='color:white'>
+                                    <div class="single-music" style='color:white; border: none;'>
                                         <audio preload="auto" controls>
                                             <source src="{{ music.file.url }}">
                                         </audio>
@@ -345,7 +294,7 @@ Home|Page
                             <div class="now-playing d-flex flex-wrap align-items-center justify-content-between">
                                 <div class="songs-name">
                                     <p>Playing</p>
-                                    <h6>{{author}} playlist</h6>
+                                    <h6>Authors playlist</h6>
                                 </div>
                             </div>
 
@@ -363,7 +312,7 @@ Home|Page
         <div class="music-search bg-img bg-overlay2 wow fadeInUp" data-wow-delay="300ms" style="background-image: url({% static 'img/bg-img/bg-9.jpg' %});">
             <!-- Content -->
             <div class="music-search-content">
-               	<a href="{% url 'music' %}"><h2>Music</h2></a>
+               	{# <a href="{% url 'music' %}"><h2>Music</h2></a> #}
                 <h4>Search for the best music</h4>
             </div>
         </div>

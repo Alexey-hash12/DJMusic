@@ -1,11 +1,47 @@
 {% extends '_base.html' %}
-
+{% load static %}
 {% block title %}
-Music|Page
+Music|{{music.title}}
 {% endblock %}
 
 {% block content %}
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb-area bg-img bg-overlay2" style="background-image: url({% static 'img/bg-img/breadcumb5.jpg' %});">
+	<div class="bradcumbContent">
+		<h2>{{music.title}}</h2>
+	</div>
+</div>
+<!-- Single Song -->
+<div class="row">
+<div class="col-12 col-lg-6">
+        <div class="about-thumbnail" style="width: 400px; margin-top: 100px; margin-left: 140px;">
+            <img src="{{ music.poster.url }}" alt="">
+        </div>
+    </div>
 
-{% endblock %}
+	<div class="col-12 col-lg-6">
+		<div class="single-music" style='border: none; margin-left: -175px; ;width: 540px; margin-top: 150px; background: linear-gradient(to right, #cc1573, #5722a9);'>
+			<audio preload="auto" controls>
+				<source src="{{ music.file.url }}">
+				</audio>
+			</div>
+		<div class="accordions mb-100" id="accordion" role="tablist" aria-multiselectable="true">
+			<!-- single accordian area -->
+			<div class="panel single-accordion" style="margin-top: 50px;">
+				<h6>
+					<a role="button" aria-expanded="false" aria-controls="collapseThree" class="collapsed" data-parent="#accordion" data-toggle="collapse" href="#collapseThree" style="margin-left: -175px; width: 540px;">Music Text:
+						<span class="accor-open"><i class="fa fa-plus" aria-hidden="true"></i></span>
+						<span class="accor-close"><i class="fa fa-minus" aria-hidden="true"></i></span>
+					</a>
+				</h6>
+				<div id="collapseThree" class="accordion-content collapse" style="margin-left: -175px;">
+					<p>{{ music.text }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+	{% endblock %}
 
 
